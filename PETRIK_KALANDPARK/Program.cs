@@ -23,12 +23,51 @@ namespace PETRIK_KALANDPARK
 
         static string JegyTipus(int eletkor) //nincs kész
         {
-            return "";
+            if (eletkor <= 7)
+            {
+                return "Mini jegy";
+            }
+            else if (eletkor <= 15)
+            {
+                return "Junior jegy";
+            }
+            else if (eletkor <= 24)
+            {
+                return "Ifjúsági jegy";
+            }
+            else if (eletkor <= 59)
+            {
+                return "Felnőttjegy";
+            }
+            else
+            {
+                return "Senior jegy";
+            }
+            
         }
 
         static int JegyAr(int eletkor) //nincs kész
         {
-            return 0;
+            if (eletkor <= 7)
+            {
+                return 1000;
+            }
+            else if (eletkor <= 15)
+            {
+                return 2200;
+            }
+            else if (eletkor <= 24)
+            {
+                return 3000;
+            }
+            else if (eletkor <= 59)
+            {
+                return 4500;
+            }
+            else
+            {
+                return 2800;
+            }
         }
 
         static void PalyaValasztas() //nincs kész
@@ -43,7 +82,11 @@ namespace PETRIK_KALANDPARK
 
         static void Main(string[] args)
         {
+
+            // kedző értékek
             int valasztas = 0;
+            int bevetel = 0;
+
             do
             {
                 try
@@ -57,7 +100,23 @@ namespace PETRIK_KALANDPARK
                         case 1:
                             {
                                 Console.Clear();
-                                Console.WriteLine("1");
+                                Console.Write("Név: ");
+                                string nev = Console.ReadLine();
+                                Console.Write("Életkor: ");
+                                int eletkor = Convert.ToInt32(Console.ReadLine());
+                                if (eletkor < 0 || eletkor > 120)
+                                {
+                                    Console.WriteLine("Hibás életkor!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"Szia {nev}!");
+                                    Console.WriteLine($"Jegytípus: {JegyTipus(eletkor)}");
+                                    Console.WriteLine($"Fizetendő: {JegyAr(eletkor)} Ft");
+                                    bevetel += JegyAr(eletkor);
+                                }
+
+                                //Console.WriteLine("1");
                                 break; 
                             }
                         case 2:
@@ -75,7 +134,9 @@ namespace PETRIK_KALANDPARK
                         case 4:
                             {
                                 Console.Clear();
-                                Console.WriteLine("4");
+                                Console.WriteLine("=== NAPI BEVÉTEL ===");
+                                Console.WriteLine($"A kalandpark mai bevétele: {bevetel} Ft");
+                                //Console.WriteLine("4");
                                 break; 
                             }
                         case 5:
