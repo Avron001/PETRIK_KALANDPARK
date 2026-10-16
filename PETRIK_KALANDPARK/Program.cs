@@ -225,10 +225,6 @@ namespace PETRIK_KALANDPARK
                             
                     }
 
-                    
-
-
-
                 }
 
                 catch (Exception ex)
