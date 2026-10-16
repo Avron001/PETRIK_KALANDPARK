@@ -17,7 +17,7 @@ namespace PETRIK_KALANDPARK
 
         static void MenuKiir() 
         {
-            Console.WriteLine("=== PETRIK KALANDPARK ===\n1.)Napijegy vásárlása\n2.)Pálya választása\n3.)Kupon kalkulátor\n4.) Napi bevétel\n5.)Kilépés");
+            Console.WriteLine("=== PETRIK KALANDPARK ===\n1.) Napijegy vásárlása\n2.) Pálya választása\n3.) Kupon kalkulátor\n4.) Napi bevétel\n5.) Kilépés");
             Console.Write("Választás: ");
         }
 
@@ -130,9 +130,23 @@ namespace PETRIK_KALANDPARK
 
         }
 
-        static int KuponosAr(int ar, int kupon) //nincs kész
+        static int KuponosAr(int ar, int kupon)
         {
-            return 0;
+            switch (kupon)
+            {
+                case 2:
+                    {
+                        return Convert.ToInt32(ar - (ar * 0.10));
+                    }
+                case 3:
+                    {
+                        return Convert.ToInt32(ar - (ar * 0.25));
+                    }
+                default:
+                    {
+                        return ar;
+                    }
+            }
         }
 
         static void Main(string[] args)
@@ -184,7 +198,19 @@ namespace PETRIK_KALANDPARK
                         case 3:
                             {
                                 Console.Clear();
-                                Console.WriteLine("3");
+                                Console.Write("Eredeti ár: ");
+                                int ar = Convert.ToInt32(Console.ReadLine());
+
+                                Console.WriteLine("\n1.) Nincs kupon");
+                                Console.WriteLine("2.) SILVER kupon 10%");
+                                Console.WriteLine("3.) GOLD kupon 25%");
+                                Console.Write("Kupon: ");
+                                int kupon = Convert.ToInt32(Console.ReadLine());
+
+                                Console.WriteLine($"\nEredeti ár: {ar} Ft");
+                                Console.WriteLine($"Kupon: {kupon}");
+                                Console.WriteLine($"Fizetendő: {KuponosAr(ar, kupon)} Ft");
+                                //Console.WriteLine("3");
                                 break; 
                             }
                         case 4:
@@ -218,7 +244,7 @@ namespace PETRIK_KALANDPARK
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Hiba! Számot kell megadni! {ex}");
+                    Console.WriteLine($"Hiba! Számot kell megadni!");
                 }
 
                 Console.ReadLine();
