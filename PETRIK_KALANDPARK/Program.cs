@@ -227,7 +227,7 @@ namespace PETRIK_KALANDPARK
 
                 }
 
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Console.WriteLine($"Hiba! Számot kell megadni!");
                 }
