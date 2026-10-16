@@ -15,13 +15,13 @@ namespace PETRIK_KALANDPARK
         //static void PalyaValasztas()
         //static int KuponosAr(int ar, int kupon)
 
-        static void MenuKiir() // kész
+        static void MenuKiir() 
         {
             Console.WriteLine("=== PETRIK KALANDPARK ===\n1.)Napijegy vásárlása\n2.)Pálya választása\n3.)Kupon kalkulátor\n4.) Napi bevétel\n5.)Kilépés");
             Console.Write("Választás: ");
         }
 
-        static string JegyTipus(int eletkor) //nincs kész
+        static string JegyTipus(int eletkor) 
         {
             if (eletkor <= 7)
             {
@@ -46,7 +46,7 @@ namespace PETRIK_KALANDPARK
             
         }
 
-        static int JegyAr(int eletkor) //nincs kész
+        static int JegyAr(int eletkor) 
         {
             if (eletkor <= 7)
             {
@@ -70,8 +70,63 @@ namespace PETRIK_KALANDPARK
             }
         }
 
-        static void PalyaValasztas() //nincs kész
+        static void PalyaValasztas()
         {
+            Console.WriteLine("=== KALANDPÁLYÁK ===");
+            Console.WriteLine("1.) Gyerekpálya");
+            Console.WriteLine("2.) Erdei pálya");
+            Console.WriteLine("3.) Extrém pálya");
+            Console.Write("Választás: ");
+            int valasztas = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Magasság: ");
+            int magassag = Convert.ToInt32(Console.ReadLine());
+
+            switch (valasztas)
+            {
+                case 1:
+                    {
+                        if (magassag < 90)
+                        {
+                            Console.WriteLine("Nem használhatod ezt a pályát!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Használhatod ezt a pályát!");
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        if (magassag < 130)
+                        {
+                            Console.WriteLine("Nem használhatod ezt a pályát!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Használhatod ezt a pályát!");
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        if (magassag < 160)
+                        {
+                            Console.WriteLine("Nem használhatod ezt a pályát!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Használhatod ezt a pályát!");
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Nincs ilyen pálya!");
+                        break;
+                    }
+            }
+
 
         }
 
@@ -122,7 +177,8 @@ namespace PETRIK_KALANDPARK
                         case 2:
                             {
                                 Console.Clear();
-                                Console.WriteLine("2");
+                                PalyaValasztas();
+                                //Console.WriteLine("2");
                                 break; 
                             }
                         case 3:
@@ -145,18 +201,28 @@ namespace PETRIK_KALANDPARK
                                 Console.WriteLine("Viszlát!");
                                 break; 
                             }
+                        default:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Nincs ilyen menüpont!");
+                                break; 
+                            }
                             
                     }
 
-                    Console.Read();
+                    
 
 
 
                 }
+
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Hiba! Számot kell megadni!");
+                    Console.WriteLine($"Hiba! Számot kell megadni! {ex}");
                 }
+
+                Console.ReadLine();
+
             }
             while (valasztas != 5);
             
