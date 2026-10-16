@@ -8,13 +8,6 @@ namespace PETRIK_KALANDPARK
 {
     internal class Program
     {
-
-        //static void MenuKiir()
-        //static string JegyTipus(int eletkor)
-        //static int JegyAr(int eletkor)
-        //static void PalyaValasztas()
-        //static int KuponosAr(int ar, int kupon)
-
         static void MenuKiir() 
         {
             Console.WriteLine("=== PETRIK KALANDPARK ===\n1.) Napijegy vásárlása\n2.) Pálya választása\n3.) Kupon kalkulátor\n4.) Napi bevétel\n5.) Kilépés");
@@ -185,14 +178,12 @@ namespace PETRIK_KALANDPARK
                                     bevetel += JegyAr(eletkor);
                                 }
 
-                                //Console.WriteLine("1");
                                 break; 
                             }
                         case 2:
                             {
                                 Console.Clear();
                                 PalyaValasztas();
-                                //Console.WriteLine("2");
                                 break; 
                             }
                         case 3:
@@ -210,7 +201,6 @@ namespace PETRIK_KALANDPARK
                                 Console.WriteLine($"\nEredeti ár: {ar} Ft");
                                 Console.WriteLine($"Kupon: {kupon}");
                                 Console.WriteLine($"Fizetendő: {KuponosAr(ar, kupon)} Ft");
-                                //Console.WriteLine("3");
                                 break; 
                             }
                         case 4:
@@ -218,7 +208,6 @@ namespace PETRIK_KALANDPARK
                                 Console.Clear();
                                 Console.WriteLine("=== NAPI BEVÉTEL ===");
                                 Console.WriteLine($"A kalandpark mai bevétele: {bevetel} Ft");
-                                //Console.WriteLine("4");
                                 break; 
                             }
                         case 5:
